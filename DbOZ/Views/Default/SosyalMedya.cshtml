@@ -1,0 +1,10 @@
+﻿
+@using DbOZ.Models.Entity
+@model List<Tbl_SosyalMedya>
+
+<div class="social-icons">
+    @foreach (var x in Model)
+    {
+        <a class="social-icon" href="@x.Link"><i class="@x.İkon"></i></a>
+    }
+</div>

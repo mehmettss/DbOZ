@@ -1,0 +1,52 @@
+﻿@using DbOZ.Models.Entity
+@model List<Tbl_Egitimlerim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Egitim Listesi</h2>
+<table class="table-bordered table">
+    <tr>
+        <th>ID</th>
+        <th>Okul</th>
+        <th>Fakulte</th>
+        <th>Bolum</th>
+        <th>Ortalama</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Guncelle</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td> @x.ID</td>
+            <td> @x.Baslik</td>
+            <td> @x.AltBaslik1</td>
+            <td> @x.AltBaslik2</td>
+            <td> @x.GNO</td>
+            <td> @x.Tarih</td>
+            <td>
+                <a class="btn btn-danger btn-sm" href="/Egitim/EgitimSil/@x.ID">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" href="/Egitim/EgitimDuzenle/@x.ID">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Guncelle
+                </a>
+            </td>
+
+        </tr>
+    }
+</table>
+<a href="/Egitim/EgitimEkle/" class="btn btn-primary">Yeni Egitim Bilgisi Ekle</a>
+
+
